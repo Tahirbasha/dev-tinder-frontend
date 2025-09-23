@@ -1,11 +1,24 @@
 import type { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./utils/store";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
   const User = useSelector((state: RootState) => state.User) as {
     firstName: string;
   } | null;
+  const navigate = useNavigate();
+  const logout = async () => {
+    try {
+      await axios.get("http://localhost:8080/logout", {
+        withCredentials: true,
+      });
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <div className="flex-1">
@@ -40,7 +53,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
               <li>
                 <a>Settings</a>
               </li>
-              <li>
+              <li onClick={logout}>
                 <a>Logout</a>
               </li>
             </ul>
