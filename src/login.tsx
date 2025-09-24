@@ -19,11 +19,10 @@ const Login = () => {
       { withCredentials: true }
     );
     dispatch(addUser(data.data));
-    navigate("/");
-    console.log(data.data);
+    navigate("/feed");
   };
   return (
-    <div className="flex justify-center my-5">
+    <div className="flex justify-center my-5 h-screen items-center">
       <div className="card bg-base-200 w-70 shadow-sm">
         <div className="card-body items-center">
           <fieldset className="fieldset">

@@ -16,7 +16,6 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (err: any) {
-      console.log(err);
       if (err.status === 401) {
         navigate("/login");
       }
@@ -33,5 +32,8 @@ const Body = () => {
     </>
   );
 };
+// TODO:
+// Build feed page, profile edit page
+// Save profile, error handling and success message on save profile.
 
 export default Body;
