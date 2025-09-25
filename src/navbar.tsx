@@ -2,7 +2,7 @@ import type { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./utils/store";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
   const User = useSelector((state: RootState) => state.User);
@@ -13,8 +13,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
         withCredentials: true,
       });
       navigate("/login");
-    } catch (err) {
-    }
+    } catch (err) {}
   };
   return (
     <div className="navbar bg-base-200 shadow-sm fixed top-0 z-10">
@@ -46,8 +45,14 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li onClick={() => navigate("/profile")}>
-                <a className="justify-between">Profile</a>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/requests">Requests</Link>
               </li>
               <li>
                 <a>Settings</a>

@@ -1,4 +1,5 @@
 export interface User {
+  _id: string;
   firstName: string;
   lastName: string;
   emailId: string;
@@ -7,4 +8,5 @@ export interface User {
   city: string;
   about: string;
   gender: string;
+  fromUserId: User;
 }

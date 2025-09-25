@@ -32,8 +32,4 @@ const Body = () => {
     </>
   );
 };
-// TODO:
-// Build feed page, profile edit page
-// Save profile, error handling and success message on save profile.
-
 export default Body;
