@@ -23,12 +23,20 @@ export const Connections: React.FC<IConnectionsProps> = () => {
   }, []);
   return (
     <div className="flex flex-col items-center gap-4 my-20">
+      {!connections.length && <h1>No Connections</h1>}
       {connections.map((connection) => {
         const { firstName, lastName, photoUrl, about } = connection;
         return (
-          <div className="card card-side bg-base-300 shadow-sm h-50 min-w-100 max-w-96" key={firstName}>
+          <div
+            className="card card-side bg-base-300 shadow-sm h-50 min-w-100 max-w-96"
+            key={firstName}
+          >
             <figure>
-              <img className="min-w-40" src={photoUrl} alt={connection.firstName} />
+              <img
+                className="min-w-40"
+                src={photoUrl}
+                alt={connection.firstName}
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{firstName + " " + lastName}</h2>
