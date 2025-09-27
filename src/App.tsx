@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import Body from "./body";
 import Login from "./login";
 import Profile from "./profile";
