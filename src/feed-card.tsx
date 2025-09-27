@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addUsersToFeed } from "./utils/feed-slice";
 import type { RootState } from "./utils/store";
+import { BASE_URL } from "./utils/constants";
 
 interface IFeedCardProps extends User {}
 
@@ -13,7 +14,7 @@ export const FeedCard: React.FC<IFeedCardProps> = (props) => {
   const handleIgnoreOrInterest = async (status: string, userId: string) => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/sendConnection/" + status + "/" + userId,
+        BASE_URL + "sendConnection/" + status + "/" + userId,
         {},
         { withCredentials: true }
       );

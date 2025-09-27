@@ -3,13 +3,14 @@ import { useSelector } from "react-redux";
 import type { RootState } from "./utils/store";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "./utils/constants";
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
   const User = useSelector((state: RootState) => state.User);
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      await axios.get("http://localhost:8080/logout", {
+      await axios.get(BASE_URL + "logout", {
         withCredentials: true,
       });
       navigate("/login");

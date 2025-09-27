@@ -1,6 +1,7 @@
 import * as React from "react";
 import axios from "axios";
 import type { User } from "./types/user";
+import { BASE_URL } from "./utils/constants";
 
 interface IConnectionsProps {}
 
@@ -9,7 +10,7 @@ export const Connections: React.FC<IConnectionsProps> = () => {
   const getConnections = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/user/connections",
+        BASE_URL + "user/connections",
         {
           withCredentials: true,
         }

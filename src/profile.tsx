@@ -5,6 +5,7 @@ import axios from "axios";
 import { addUser } from "./utils/user-slice";
 import { Card } from "./card";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./utils/constants";
 
 const Profile = () => {
   const user = useSelector((state: RootState) => state.User);
@@ -20,7 +21,7 @@ const Profile = () => {
   const handleUpdateProfile = async () => {
     try {
       const { data } = await axios.patch(
-        "http://localhost:8080/update",
+        BASE_URL + "update",
         {
           firstName,
           lastName,

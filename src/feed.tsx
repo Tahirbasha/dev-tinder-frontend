@@ -5,13 +5,14 @@ import { FeedCard } from "./feed-card";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "./utils/store";
 import { addUsersToFeed } from "./utils/feed-slice";
+import { BASE_URL } from "./utils/constants";
 
 const Feed: React.FC<IFeedProps> = () => {
   const feedData: User[] = useSelector((state: RootState) => state.Feed) || [];
   const dispatch = useDispatch();
   const getFeedData = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/feed", {
+      const res = await axios.get(BASE_URL + "feed", {
         withCredentials: true,
       });
       dispatch(addUsersToFeed(res.data));

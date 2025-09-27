@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 import type { User } from "./types/user";
+import { BASE_URL } from "./utils/constants";
 
 interface IReuqestsProps {}
 
@@ -8,7 +9,7 @@ export const Reuqests: React.FC<IReuqestsProps> = () => {
   const [requests, setRequests] = React.useState<User[]>([]);
   const getReuqests = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/user/requests", {
+      const { data } = await axios.get(BASE_URL + "user/requests", {
         withCredentials: true,
       });
       setRequests(data);
